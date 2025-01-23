@@ -10,3 +10,17 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.rojo {
+    box-shadow:  -14px -8px 179px 59px rgba(255,0,0,1);
+}
+.amarillo {
+    box-shadow:   -14px -8px 179px 59px  rgba(234,242,0,1);
+}
+.verde {
+    box-shadow:  -14px -8px 179px 59px rgba(78,235,0,1);
+    
+}
+.morado {
+    box-shadow: -14px -8px 179px 59px rgba(223,0,235,1);
+}

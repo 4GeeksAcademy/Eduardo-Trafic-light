@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { use } from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
+	const [ color, setColor ] = useState("");
+	
+	const [luces, setLuces] = useState ([ {nombre:"rojo", valor:"red"}, {nombre:"amarillo", valor:"yellow"}, {nombre:"verde", valor:"green"}]);
+	return ( 
+		<div className="container mt-5"> 
+		<div className="container mt-5 bg-black" style={{width: 200, borderRadius: "10%"}}>
+			<div className="d-inline-block d-flex flex-column align-items-center">
+				
+				{
+					luces.map(faro=><button className={"d-inline-block rounded-circle m-3 " + (color == faro.valor ? faro.nombre : "") } style={{backgroundColor:faro.valor, height: 80, width: 80}} onClick={()=>{setColor(faro.valor)}}></button> )
+				}
+
+			</div>
+		</div>                 
+			   <button className="btn btn-success" onClick={()=>{
+				if (luces.length <= 3){
+
+					setLuces([...luces, {nombre:"morado", valor:"purple"}])
+				}
+			   }}>Agregar</button>  
+		</div>     
+
+		  
+	);                                 
+};     
 
 export default Home;
